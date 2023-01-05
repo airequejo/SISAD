@@ -241,14 +241,14 @@ $cantidades=substr($cantidades, 0,-1);
                               <div class="box-body">
                               Resumen de comprobantes
                               <table border="1" width="90%">
-                              <tr><td colspan="3"><b>&nbsp;Lista de Comprobantes</b></td></tr>
+                              <tr><td colspan="4"><b>&nbsp;Lista de Comprobantes</b></td></tr>
                               
                                 <?php 
                                 $comprobantes = $venta->listar1($fechaactual,$fechaactual);
                                 while ($reg = $comprobantes->fetch_object())
                                 {
                                 
-                                   echo '<tr><td><small>'.substr($reg->tipocomprobante,0,3).$reg->serie."-".$reg->numero."-".$reg->cliente.'</small></td><td><small>'.substr($reg->formapago,0,3).'</small></td><td align="right"><small>'.number_format($reg->total, 2, '.', '').'</small>&nbsp;</td></tr>';
+                                   echo '<tr><td><small>'.substr($reg->tipocomprobante,0,3).$reg->serie."-".$reg->numero."-".$reg->cliente.'</small></td><td><small>'.substr($reg->formapago,0,3).'</small></td><td align="right"><small>'.number_format($reg->total, 2, '.', '').'</small>&nbsp;</td><td>'.$reg->usuario.'</td></tr>';
                                 }                              
                                 ?>
                                 </table>
