@@ -189,6 +189,7 @@ public function listar($fecha_inicio,$fecha_fin)
 				v.comprobanteref,
 				v.nc,
 				fp.descripcion as formapago,
+				fp.iniciales,
 				enviosunat.estadoenvio,
 				enviosunat.fecha AS fechahora,
 				enviosunat.hash_cpe,

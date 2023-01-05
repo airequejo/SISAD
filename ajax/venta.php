@@ -367,16 +367,15 @@ case 'insert_ventas_temp':
  				"3"=>$reg->cliente,
  				"4"=>$reg->dniruc,
  				"5"=>$documentito,
-				"6"=>$reg->formapago,
+				"6"=>'<span title="'.$reg->formapago.'">'.$reg->iniciales.'</span>',
  				"7"=>$reg->comprobante,
  				"8"=>$reg->comprobanteref,
  				"9"=>$reg->total,
  		    /*	"3"=>($reg->cod_sunat==='0000')?'<button title="Enviar a sunat" class="btn btn-xs btn-warning" onclick="enviar_sunat('.$reg->idventa.')"><i class="fa fa-check-o text-red"></i> Enviar a sunat</button>':'<a href="../161/pag_cliente/" target="_blank" class="btn btn-primary btn-xs">SUNAT</a>',*/
  		    	//"3"=>$valsunat,
- 				//"2"=>($reg->estadoenvio=='0')?'<span class="label bg-green">Enviado</span>':
- 				'<span class="label bg-red">Pendiente</span>',
- 				"1"=>($reg->estado=='0')?'<span class="badge bg-green">Aceptado</span>':
- 				'<span class="badge bg-red">Anulado</span>'
+ 				//"2"=>($reg->estadoenvio=='0')?'<span class="label bg-green">Enviado</span>':'<span class="label bg-red">Pendiente</span>',
+ 				"1"=>($reg->estado=='0')?'<span class="badge bg-green">A</span>':
+ 				'<span class="badge bg-red">A</span>'
  				);
  		
  		}
