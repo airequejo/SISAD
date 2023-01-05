@@ -68,7 +68,11 @@ if (!isset($_SESSION['nombre'])) {
                     </div>
 
                   </div>
-               
+               <style>
+               tr{
+               height: 20px;
+               }
+               </style>
      
 
                         <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
