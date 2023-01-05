@@ -69,6 +69,11 @@ if (!isset($_SESSION['nombre'])) {
 
                   </div>
                <style>
+               th, td { white-space: nowrap; }
+                        div.dataTables_wrapper {
+                        width: auto;
+                        margin: 0 auto;
+                      }
                tr{
                height: 20px;
                }
