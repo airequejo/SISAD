@@ -74,14 +74,14 @@ if (!isset($_SESSION['nombre'])) {
                         <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
                           <thead>
                             <th>N°</th>
-                            <th>Estado</th>
+                            <th>E</th>
                             <!-- <th>Situa</th>
                             <th>Documentos</th> -->
                             <th>Fecha</th>
-                            <th>Cliente</th>
-                            <th>DNI/RUC</th>
+                            <th>Doc - Cliente</th>
                             <th>Documento</th>
                             <th>FP</th>
+                            <th>Op</th>
                             <th>Número</th>
                             <th>Referencia</th>
                             <th>Total</th>

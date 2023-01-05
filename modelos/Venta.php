@@ -186,6 +186,7 @@ public function listar($fecha_inicio,$fecha_fin)
 				v.comprobante,
 				v.total as total,					
 				v.estado,
+				v.operacion,
 				v.comprobanteref,
 				v.nc,
 				fp.descripcion as formapago,
