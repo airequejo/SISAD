@@ -72,7 +72,7 @@
             echo "<tr><td valign='top'><font size='1px'>&nbsp;&nbsp;&nbsp;</font></td><td valign='top'><font size='1px'>&nbsp;&nbsp;&nbsp;&nbsp;</font></td><td><font size='1px'>".$regdi->codigodivisionaria." ".$regdi->divisionaria."</font></td><td align='right' valign='top'><font size='1px'>".$regdi->total."</font></td><td valign='top'><font size='1px'>&nbsp;</font></td><td valign='top'><font size='2px'>&nbsp;</font></td></tr>";
             $rsptabo = $consultas->comprobantesingresos($periodo,$regc->idcuenta,$regsc->idsubcuenta,$regsc->iddivisionaria);
             while ($regbo = $rsptabo->fetch_object()) {
-                echo "<tr><td valign='top'><font size='1px'>&nbsp;&nbsp;&nbsp;</font></td><td valign='top'><font size='2px'>&nbsp;</font></td><td valign='top'><font size='1px'>&nbsp;&nbsp;&nbsp;&nbsp;</font></td><td><font size='1px'>".$regbo->fecha." ".$regbo->comprobante."</font></td><td align='right' valign='top'><font size='1px'>".$regbo->nombre."</font></td><td valign='top'><font size='1px'>&nbsp;</font></td><td valign='top'><font size='2px'>".$regbo->total."</font></td></tr>";
+                echo "<tr><td valign='top'><font size='1px'>&nbsp;&nbsp;&nbsp;&nbsp;</font></td><td><font size='1px'>".$regbo->fecha." ".$regbo->comprobante."</font></td><td align='right' valign='top'><font size='1px'>".$regbo->nombre."</font></td><td valign='top'><font size='1px'>&nbsp;</font></td><td valign='top'><font size='2px'>".$regbo->total."</font></td></tr>";
                 
             }
         }
