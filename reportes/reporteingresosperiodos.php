@@ -66,11 +66,15 @@
         echo "<tr><td colspan='5'><font size='1px'><b>".$regc->codigocuenta." ".$regc->cuenta."</b></font></td><td align='right' valign='top'><font size='1px'><b>".$regc->total."</b></font></td></tr>";
         $rsptasc = $consultas->subcuentasingresos($periodo,$regc->idcuenta);
         while ($regsc = $rsptasc->fetch_object()) {
-            echo "<tr><td valign='top'><font size='1px'>&nbsp;</font></td><td colspan='3'><font size='1px' color='blue'>".$regsc->codigosubcuenta." ".$regsc->subcuenta."</font></td><td align='right' valign='top'><font size='1px' color='blue'>".$regsc->total."</font></td><td valign='top'><font size='1px'>&nbsp;</font></td></tr>";
+            echo "<tr><td valign='top'><font size='1px'>&nbsp;&nbsp;&nbsp;</font></td><td colspan='3'><font size='1px' color='blue'>".$regsc->codigosubcuenta." ".$regsc->subcuenta."</font></td><td align='right' valign='top'><font size='1px' color='blue'>".$regsc->total."</font></td><td valign='top'><font size='1px'>&nbsp;</font></td></tr>";
             $rsptadi = $consultas->divisionariaingresos($periodo,$regc->idcuenta,$regsc->idsubcuenta);
         while ($regdi = $rsptadi->fetch_object()) {
-            echo "<tr><td valign='top'><font size='1px'>&nbsp;</font></td><td valign='top'><font size='1px'>&nbsp;</font></td><td><font size='1px'>".$regdi->codigodivisionaria." ".$regdi->divisionaria."</font></td><td align='right' valign='top'><font size='1px'>".$regdi->total."</font></td><td valign='top'><font size='1px'>&nbsp;</font></td><td valign='top'><font size='2px'>&nbsp;</font></td></tr>";
-            
+            echo "<tr><td valign='top'><font size='1px'>&nbsp;&nbsp;&nbsp;</font></td><td valign='top'><font size='1px'>&nbsp;&nbsp;&nbsp;&nbsp;</font></td><td><font size='1px'>".$regdi->codigodivisionaria." ".$regdi->divisionaria."</font></td><td align='right' valign='top'><font size='1px'>".$regdi->total."</font></td><td valign='top'><font size='1px'>&nbsp;</font></td><td valign='top'><font size='2px'>&nbsp;</font></td></tr>";
+            $rsptabo = $consultas->comprobantesingresos($periodo,$regc->idcuenta,$regsc->idsubcuenta,$regsc->idsubcuenta);
+            while ($regbo = $rsptabo->fetch_object()) {
+                echo "<tr><td valign='top'><font size='1px'>&nbsp;&nbsp;&nbsp;</font></td><td valign='top'><font size='2px'>&nbsp;</font></td><td valign='top'><font size='1px'>&nbsp;&nbsp;&nbsp;&nbsp;</font></td><td><font size='1px'>".$regdi->codigodivisionaria." ".$regdi->divisionaria."</font></td><td align='right' valign='top'><font size='1px'>".$regdi->total."</font></td><td valign='top'><font size='1px'>&nbsp;</font></td><td valign='top'><font size='2px'>&nbsp;</font></td></tr>";
+                
+            }
         }
         }
     }

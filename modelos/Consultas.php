@@ -227,6 +227,73 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 			d.codigodivisionaria ASC";
 		return ejecutarConsulta($sql);
 		}
+		
+		public function comprobantesingresos($idperiodo,$idcuenta,$idsubcuenta,$iddivisionaria){
+		$sql="SELECT
+		dtv.idperiodo, 
+		dtv.iddetalleproductodivisionaria, 
+		c.idcuenta, 
+		c.codigocuenta, 
+		c.descripcion AS cuenta, 
+		s.idsubcuenta, 
+		s.codigosubcuenta, 
+		s.descripcion AS subcuenta, 
+		d.iddivisionaria, 
+		d.codigodivisionaria, 
+		d.descripcion AS divisionaria, 
+		p.idproducto, 
+		p.descripcion, 
+		dtv.precio * dtv.cantidad AS total, 
+		venta.fecha, 
+		venta.idventa, 
+		venta.montoabonado, 
+		venta.comprobante, 
+		clientes.nombre
+	FROM
+		detalleventa AS dtv
+		INNER JOIN
+		detalle_producto_divisionarias AS dtp
+		ON 
+			dtv.iddetalleproductodivisionaria = dtp.iddetalleproductodivisionaria
+		INNER JOIN
+		productos AS p
+		ON 
+			dtp.idproducto = p.idproducto
+		INNER JOIN
+		divisionarias AS d
+		ON 
+			dtp.iddivisionaria = d.iddivisionaria
+		INNER JOIN
+		subcuentas AS s
+		ON 
+			d.idsubcuenta = s.idsubcuenta
+		INNER JOIN
+		cuentas AS c
+		ON 
+			s.idcuenta = c.idcuenta
+		INNER JOIN
+		venta
+		ON 
+			dtv.idventa = venta.idventa
+		INNER JOIN
+		direcciones
+		ON 
+			venta.iddireccioncliente = direcciones.iddireccion
+		INNER JOIN
+		clientes
+		ON 
+			direcciones.idcliente = clientes.idcliente
+	WHERE
+		dtv.idperiodo = '$idperiodo' AND
+		c.idcuenta = '$idcuenta' AND
+		s.idsubcuenta='$idsubcuenta' AND
+	  d.iddivisionaria='$iddivisionaria'
+	ORDER BY
+		dtv.idventa ASC";
+		return ejecutarConsulta($sql);
+		}
+		
+		
 	
 	// GESTION DE CONSULTAS DE GASTOS O EGRESOS
 	public function reporteperiodoingresosfechas($inicio,$final){
