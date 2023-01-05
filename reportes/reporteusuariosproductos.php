@@ -63,8 +63,8 @@
     $v=1;
     
     while ($regc = $rsptac->fetch_object()) {
-        echo "<tr><td colspan='5'><font size='1px'><b>".$regc->codigocuenta." ".$regc->cuenta."</b></font></td><td align='right' valign='top'><font size='1px'><b>".number_format($regc->total,2)."</b></font></td></tr>";
-        $rsptasc = $consultas->subcuentasgastos($periodo,$regc->idcuenta);
+        echo "<tr><td>".$v++."</td></td><td colspan='5'><font size='1px'><b>".$regc->dniruc."</b></font></td><td align='right' valign='top'><font size='1px'><b>".$regc->nombre."</b></font></td><td align='right' valign='top'><font size='1px'><b>".$regc->celular."</b></font></td></tr>";
+        
         
     }
     ?>
