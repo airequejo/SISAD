@@ -81,7 +81,7 @@ if (!isset($_SESSION['nombre'])) {
                             <th>Cliente</th>
                             <th>DNI/RUC</th>
                             <th>Documento</th>
-                            <th>Formapago</th>
+                            <th>FP</th>
                             <th>Número</th>
                             <th>Referencia</th>
                             <th>Total</th>
