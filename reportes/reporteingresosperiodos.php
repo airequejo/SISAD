@@ -57,7 +57,7 @@
 </table>
 
 <!-- Mostramos los detalles de la venta en el documento HTML -->
-<table border="1" align="center" width="90%">
+<table border="0" align="center" width="90%">
     <?php
     $v=1;
     $sumatoria=0;
