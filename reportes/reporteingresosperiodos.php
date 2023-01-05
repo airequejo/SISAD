@@ -63,22 +63,22 @@
     $sumatoria=0;
     while ($regc = $rsptac->fetch_object()) {
     $sumatoria=$sumatoria+$regc->total;
-        echo "<tr><td colspan='5'><font size='1px'><b>".$regc->codigocuenta." ".$regc->cuenta."</b></font></td><td align='right' valign='top'><font size='1px'><b>".$regc->total."</b></font></td></tr>";
+        echo "<tr><td colspan='9'><font size='1px'><b>".$regc->codigocuenta." ".$regc->cuenta."</b></font></td><td align='right'><font size='1px'><b>".$regc->total."</b></font></td></tr>";
         $rsptasc = $consultas->subcuentasingresos($periodo,$regc->idcuenta);
         while ($regsc = $rsptasc->fetch_object()) {
-            echo "<tr><td valign='top'><font size='1px'>&nbsp;&nbsp;&nbsp;</font></td><td colspan='3'><font size='1px' color='blue'>".$regsc->codigosubcuenta." ".$regsc->subcuenta."</font></td><td align='right' valign='top'><font size='1px' color='blue'>".$regsc->total."</font></td><td valign='top'><font size='1px'>&nbsp;</font></td></tr>";
+            echo "<tr><td valign='top'>&nbsp;</font></td><td colspan='8'><font size='1px' color='blue'>".$regsc->codigosubcuenta." ".$regsc->subcuenta."</font></td><td align='right' valign='top'><font size='1px' color='blue'>".$regsc->total."</font></td><td valign='top'>&nbsp;</td></tr>";
             $rsptadi = $consultas->divisionariaingresos($periodo,$regc->idcuenta,$regsc->idsubcuenta);
         while ($regdi = $rsptadi->fetch_object()) {
-            echo "<tr><td valign='top'><font size='1px'>&nbsp;&nbsp;&nbsp;</font></td><td valign='top'><font size='1px'>&nbsp;&nbsp;&nbsp;&nbsp;</font></td><td><font size='1px'>".$regdi->codigodivisionaria." ".$regdi->divisionaria."</font></td><td align='right' valign='top'><font size='1px'>".$regdi->total."</font></td><td valign='top'><font size='1px'>&nbsp;</font></td><td valign='top'><font size='2px'>&nbsp;</font></td></tr>";
+            echo "<tr><td valign='top'>&nbsp;</td><td valign='top'>&nbsp;</td><td colspan='7'><font size='1px'>".$regdi->codigodivisionaria." ".$regdi->divisionaria."</font></td><td align='right'><font size='1px'>".$regdi->total."</font></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>";
             $rsptabo = $consultas->comprobantesingresos($periodo,$regc->idcuenta,$regsc->idsubcuenta,$regdi->iddivisionaria);
             while ($regbo = $rsptabo->fetch_object()) {
-                echo "<tr><td valign='top'><font size='1px'>&nbsp;&nbsp;&nbsp;&nbsp;</font></td><td><font size='1px'>".$regbo->fecha." ".$regbo->comprobante."</font></td><td align='right' valign='top'><font size='1px'>".$regbo->nombre."</font></td><td valign='top'><font size='1px'>&nbsp;</font></td><td valign='top'><font size='2px'>".$regbo->total."</font></td></tr>";
+                echo "<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font size='1px'>".$regbo->fecha."</font><td><font size='1px'>".$regbo->comprobante."</font></td><td valign='top'><font size='1px'>".$regbo->nombre."</font></td><td valign='top'><font size='1px'>".$regbo->total."</font></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>";
                 
             }
         }
         }
     }
-    echo "<tr><td colspan='5' align='right'><hr><font size='1px'><b>TOTAL S/ </b></font></td><td align='right' valign='top'><hr><font size='1px'><b>".number_format($sumatoria,2)."</b></font></td></tr>";
+    echo "<tr><td colspan='9' align='right'><hr><font size='1px'><b>TOTAL S/ </b></font></td><td align='right' valign='top'><hr><font size='1px'><b>".number_format($sumatoria,2)."</b></font></td></tr>";
     ?>
 </table>
 <br>
