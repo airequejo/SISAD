@@ -63,7 +63,7 @@
     $v=1;
     
     while ($regc = $rsptac->fetch_object()) {
-        echo "<tr><td>".$v++."</td></td><td colspan='5'><font size='1px'><b>".$regc->dniruc."</b></font></td><td align='right' valign='top'><font size='1px'><b>".$regc->nombre."</b></font></td><td align='right' valign='top'><font size='1px'><b>".$regc->celular."</b></font></td></tr>";
+        echo "<tr><td>".$v++."</td></td><td colspan='5' align='right'><font size='1px'><b>".$regc->dniruc."</b></font></td><td align='left' valign='top'><font size='1px'><b>".$regc->nombre."</b></font></td><td align='right' valign='top'><font size='1px'><b>".$regc->celular."</b></font></td></tr>";
         
         
     }
