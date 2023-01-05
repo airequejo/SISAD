@@ -1,0 +1,10 @@
+Options All  -Indexes
+
+
+ErrorDocument 404 /APPCUENTAS/vistas/404.php
+ErrorDocument 403 /APPCUENTAS/vistas/403.php
+
+
+RewriteEngine On
+
+RewriteRule ^([a-zA_Z0-9/]+)$ index.php?pagina=$1
