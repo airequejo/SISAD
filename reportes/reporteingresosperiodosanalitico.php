@@ -70,6 +70,11 @@
             $rsptadi = $consultas->divisionariaingresos($periodo,$regc->idcuenta,$regsc->idsubcuenta);
         while ($regdi = $rsptadi->fetch_object()) {
             echo "<tr><td valign='top'>&nbsp;</td><td valign='top'>&nbsp;</td><td colspan='5'><font size='1px' color='purple'><b>".$regdi->codigodivisionaria." ".$regdi->divisionaria."</b></font></td><td align='right'><font size='1px'>".$regdi->total."</font></td><td>&nbsp;</td><td>&nbsp;</td></tr>";
+            $rsptabo = $consultas->comprobantesingresos($periodo,$regc->idcuenta,$regsc->idsubcuenta,$regdi->iddivisionaria);
+            while ($regbo = $rsptabo->fetch_object()) {
+                echo "<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font size='1px'>".$regbo->fecha."</font><td><font size='1px'>".$regbo->comprobante."</font></td><td valign='top'><font size='1px'>".$regbo->nombre."</font></td><td valign='top'><font size='1px'>".$regbo->total."</font></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>";
+                
+            }
         }
         }
     }

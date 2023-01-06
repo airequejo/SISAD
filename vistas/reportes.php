@@ -104,7 +104,8 @@ if (!isset($_SESSION['nombre'])) {
                 <option value="1">2023-I</option>
                 
               </select>
-              <button class="btn btn-primary" onclick="mostrarperiodoingreso();">Ver</button>
+              <button class="btn btn-primary" onclick="mostrarperiodoingreso();">Cuentas</button>
+              <button class="btn btn-primary" onclick="mostrarperiodoingresoanalitico();">Analítico</button>
             </div>
             <div class="tab-pane fade" id="fechasgi" role="tabpanel" aria-labelledby="profile-tab">
             <br>
@@ -274,7 +275,10 @@ if (!isset($_SESSION['nombre'])) {
       var id = $("#idperiodogi").val();
     window.open('../reportes/reporteingresosperiodos.php?id='+id,'_blank');
     }
-    
+    function mostrarperiodoingresoanalitico() {
+      var id = $("#idperiodogi").val();
+    window.open('../reportes/reporteingresosperiodosanalitico.php?id='+id,'_blank');
+    }
     function mostrarperiodogasto() {
       var id = $("#idperiodogg").val();
     window.open('../reportes/reportegastosperiodos.php?id='+id,'_blank');
