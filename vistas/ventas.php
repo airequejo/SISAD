@@ -87,7 +87,7 @@ if (!isset($_SESSION['nombre'])) {
                 <div class="col-lg-2">
                   <div class="form-group">                   
                     <label id="prec" >Precio</label>
-                    <input type="text" class="form-control" name="precio" id="precio" readonly >
+                    <input type="text" class="form-control" name="precio" id="precio" >
                     <input type="hidden" class="form-control" name="descuento" id="descuento"   value="0.00" readonly>
                   </div>
                 </div>
@@ -241,7 +241,7 @@ if (!isset($_SESSION['nombre'])) {
     </div>
   </div>
 
-<
+
 
 
 
