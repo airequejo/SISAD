@@ -391,6 +391,7 @@ if (!isset($_SESSION['nombre'])) {
                   </div> 
                             
                 </div>
+                 
             </div>
 
              <div class="row" id="vuelt"> 
@@ -409,6 +410,12 @@ if (!isset($_SESSION['nombre'])) {
                     </div>  
                 </div>
                 </div> 
+                <div class="col-xs-12">      
+                    <div class="form-group">
+                      <label>Observación</label><br>
+                      <textarea name="observacion" class="form-control" id="observacion" cols="30" rows="3"></textarea>
+                    </div>  
+                </div>
 
                 <div class="col-12">
                   <div class="info-box">
@@ -419,6 +426,8 @@ if (!isset($_SESSION['nombre'])) {
                     </div>
                   </div>
                 </div>
+
+                
                            
              
 

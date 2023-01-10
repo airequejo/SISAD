@@ -76,6 +76,7 @@ $iddireccion=isset($_POST["iddireccion"])? limpiarCadena($_POST["iddireccion"]):
 
 $idespecialidad=isset($_POST["idespecialidad"])? limpiarCadena($_POST["idespecialidad"]):"";
 $idciclo=isset($_POST["idciclo"])? limpiarCadena($_POST["idciclo"]):"";
+$observacion=isset($_POST["observacion"])? limpiarCadena($_POST["observacion"]):"";
 
 $fechaproceso=date('Y-m-d');
 
@@ -153,7 +154,7 @@ case 'insertar_venta':
 		{
 
 
-			$rspta=$venta->insertar_venta($idusuario,$iddireccion,$idformapago,$tipoventa,$fecha,$idtipocomprobante,$igv,$descuento_general,$idindex_venta,$montoabonado,$fecha_vencimiento,$operacion,$fechaoperacion,$idespecialidad,$idciclo);
+			$rspta=$venta->insertar_venta($idusuario,$iddireccion,$idformapago,$tipoventa,$fecha,$idtipocomprobante,$igv,$descuento_general,$idindex_venta,$montoabonado,$fecha_vencimiento,$operacion,$fechaoperacion,$idespecialidad,$idciclo,$observacion);
 
 			$rows = mysqli_num_rows($rspta);
 			

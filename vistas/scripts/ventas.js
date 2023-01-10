@@ -361,6 +361,7 @@ function limpiar() {
   $("#total").val("");
   $(".filas").remove();
   $("#tot").html("0");
+  $("#observacion").text("");
 
   //Obtenemos la fecha actual
   var now = new Date();

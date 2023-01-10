@@ -97,10 +97,10 @@ Class Venta
 	}
 	
 
-	public function insertar_venta($idusuario,$iddireccion,$idformapago,$tipoventa,$fecha,$idtipocomprobante,$igv,$descuento_general,$idindex_venta,$montoabonado,$fecha_vencimiento,$operacion,$fechaoperacion,$idespecialidad,$idciclo)
+	public function insertar_venta($idusuario,$iddireccion,$idformapago,$tipoventa,$fecha,$idtipocomprobante,$igv,$descuento_general,$idindex_venta,$montoabonado,$fecha_vencimiento,$operacion,$fechaoperacion,$idespecialidad,$idciclo,$observacion)
 
 	{
-		$sql="CALL sp_procesar_venta('$idusuario','$iddireccion','$idformapago','$tipoventa','$fecha','$idtipocomprobante','$igv','$descuento_general','$idindex_venta','$montoabonado','$fecha_vencimiento','$operacion','$fechaoperacion','$idespecialidad','$idciclo');";
+		$sql="CALL sp_procesar_venta('$idusuario','$iddireccion','$idformapago','$tipoventa','$fecha','$idtipocomprobante','$igv','$descuento_general','$idindex_venta','$montoabonado','$fecha_vencimiento','$operacion','$fechaoperacion','$idespecialidad','$idciclo','$observacion');";
 
 		return ejecutarConsulta($sql);
 	}
@@ -189,6 +189,7 @@ public function listar($fecha_inicio,$fecha_fin)
 				v.operacion,
 				v.comprobanteref,
 				v.nc,
+				v.observacion,
 				fp.descripcion as formapago,
 				fp.iniciales,
 				enviosunat.estadoenvio,
@@ -320,6 +321,7 @@ public function listar_ticket($fecha_inicio,$fecha_fin)
 		usuario.nombre AS usuario,
 		v.total AS total_venta,
 		v.igv AS impuesto,
+		v.observacion,
 		tipocomprobante.descripcion AS tipocomprobante,
 		v.comprobante,
 		c.tipodocumento,
@@ -392,6 +394,7 @@ public function listar_ticket($fecha_inicio,$fecha_fin)
 		v.estado,
 		v.comprobanteref,
 		v.nc,
+		v.observacion,
 		fp.descripcion as formapago,
 		enviosunat.estadoenvio,
 		enviosunat.fecha AS fechahora,
