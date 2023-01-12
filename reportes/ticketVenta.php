@@ -276,7 +276,10 @@ $tipoproceso=$reg->tipoproceso;
       <td colspan="4"><?php echo "SON: ". $con_letra; ?></td><br>
      
     </tr>
-
+    <tr>
+        <!-- Mostramos los datos del cliente en el documento HTML -->
+        <td><font size="1px">OBSERVACIONES : <b> <?php echo $regv->observacion; ?></b></font></td>
+    </tr>
      <?php
 
     if($regv->tipoventa==="2"){
