@@ -13,11 +13,11 @@ Class Compra
 
 
 
-public function insertar_compra($idusuario,$idproveedor,$idformapago,$idconceptocp,$numerocp,$fechacp,$numerocheque,$tipocompra,$fecha,$tipocomprobante,$serie,$numero,$igv,$idindex,$descuento_general,$montoabonado,$fecha_vencimiento,$operacion)
+public function insertar_compra($idusuario,$idproveedor,$idformapago,$idconceptocp,$numerocp,$fechacp,$numerocheque,$tipocompra,$fecha,$tipocomprobante,$serie,$numero,$igv,$idindex,$descuento_general,$montoabonado,$fecha_vencimiento,$operacion,$documentoautoriza,$observacion)
 
 	{
 
-		$sql="CALL sp_procesar_compra('$idusuario','$idproveedor','$idformapago','$idconceptocp','$numerocp','$fechacp','$numerocheque','$tipocompra','$fecha','$tipocomprobante','$serie','$numero','$igv','$idindex','$descuento_general','$montoabonado','$fecha_vencimiento','$operacion');";
+		$sql="CALL sp_procesar_compra('$idusuario','$idproveedor','$idformapago','$idconceptocp','$numerocp','$fechacp','$numerocheque','$tipocompra','$fecha','$tipocomprobante','$serie','$numero','$igv','$idindex','$descuento_general','$montoabonado','$fecha_vencimiento','$operacion','$documentoautoriza','$observacion');";
 		return ejecutarConsulta($sql);
 	}
 
@@ -63,6 +63,8 @@ public function insertar_compra_temp($idproducto,$idactividad,$idusuario,$idinde
 					c.numero,
 					c.total,
 					c.igv,
+					c.documentoautoriza,
+					c.observacion,
 					c.descuento,
 					c.descuento_general,
 					c.estado 
@@ -119,6 +121,8 @@ public function insertar_compra_temp($idproducto,$idactividad,$idusuario,$idinde
 				compra.serie,
 				compra.numero,
 				compra.estado,
+				compra.documentoautoriza,
+				compra.observacion,
 				usuario.nombre AS usuario,
 				compra.total as total_compra,
 				compra.descuento_general,

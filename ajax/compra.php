@@ -47,6 +47,8 @@ $idconceptocp=isset($_POST["idconceptocp"])? limpiarCadena($_POST["idconceptocp"
 $numerocp=isset($_POST["numerocp"])? limpiarCadena($_POST["numerocp"]):"";
 $fechacp=isset($_POST["fechacp"])? limpiarCadena($_POST["fechacp"]):"";
 $numerocheque=isset($_POST["numerocheque"])? limpiarCadena($_POST["numerocheque"]):"";
+$documentoautoriza=isset($_POST["documentoautoriza"])? limpiarCadena($_POST["documentoautoriza"]):"";
+$observacion=isset($_POST["observacion"])? limpiarCadena($_POST["observacion"]):"";
 
 
 switch ($_GET["op"]){
@@ -66,7 +68,7 @@ switch ($_GET["op"]){
 	break;
 
 	case 'insertar_compra':
-				$rspta=$compra->insertar_compra($idusuario,$idproveedor,$idformapago,$idconceptocp,$numerocp,$fechacp,$numerocheque,$tipocompra,$fecha,$tipocomprobante,$serie,$numero,$igv,$idindex_p,$descuento_general,$montoabonado,$fecha_vencimiento,$operacion);
+				$rspta=$compra->insertar_compra($idusuario,$idproveedor,$idformapago,$idconceptocp,$numerocp,$fechacp,$numerocheque,$tipocompra,$fecha,$tipocomprobante,$serie,$numero,$igv,$idindex_p,$descuento_general,$montoabonado,$fecha_vencimiento,$operacion,$documentoautoriza,$observacion);
 				$rows = mysqli_num_rows($rspta);
 				$data = mysqli_fetch_assoc($rspta);
 				echo json_encode($data,JSON_UNESCAPED_UNICODE);

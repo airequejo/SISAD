@@ -405,7 +405,7 @@ if (!isset($_SESSION['nombre'])) {
                             <input type="text" id="numerocp" name="numerocp" class="form-control" required placeholder="NÚMERO CP">
                           </div>
 
-                          <div class="form-group  col-lg-4 col-sm-12 col-xs-12">
+                          <div class="form-group  col-lg-3 col-sm-12 col-xs-12">
                               <?php 
                                 date_default_timezone_set("America/Lima");    
 
@@ -416,6 +416,11 @@ if (!isset($_SESSION['nombre'])) {
                               ?>
                             <label>FECHA CP</label>
                             <input type="date" class="form-control" name="fechacp" id="fechacp" style="border-radius: 5px;" required data-format="dd/MM/yyyy" min="<?php echo date("Y-m-d",strtotime($fecha.'- 5 days'));?>" max="<?php echo $fecha; ?>" value="<?php echo date('Y-m-d'); ?>">
+                          </div>
+
+                          <div id="forma_p" class="form-group  col-lg-4 col-sm-12 col-xs-12">
+                            <label>DOC. AUTORIZA</label> 
+                            <input type="text" id="documentoautoriza" name="documentoautoriza" class="form-control" required placeholder="">
                           </div>
 
 
@@ -449,13 +454,14 @@ if (!isset($_SESSION['nombre'])) {
 
 
           
-                           <div class="form-group   col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                           <!-- <div class="form-group   col-lg-2 col-md-2 col-sm-12 col-xs-12">
                             <label>DESC. GENERAL</label required>
-                            <input type="text" class="form-control" name="montodscto" id="montodscto" value="0.00" style="border-radius: 5px;">
-                          </div>
+                            
+                          </div> -->
                           
                         <div id="moneda" class="form-group   col-lg-2 col-md-2 col-sm-12 col-xs-12">
                             <label>MONEDA</label>
+                            <input type="hidden" class="form-control" name="montodscto" id="montodscto" value="0.00" style="border-radius: 5px;">
                             <select class="form-control" name="tipomoneda" id="tipomoneda" style="border-radius: 5px;" required>
                                 <option>NACIONAL</option>
                                 <option>EXTRANJERA</option>
@@ -466,11 +472,17 @@ if (!isset($_SESSION['nombre'])) {
                             <input type="text" class="form-control" name="tipocambio" id="tipocambio" value="0" style="border-radius: 5px;" required>
                           </div>
 
-                          <div class="form-group   col-lg-2 ol-sm-12 col-xs-12">
+                          <div class="form-group   col-lg-2 col-sm-12 col-xs-12">
                             <label>IGV</label>
                             <input type="text" class="form-control" name="igv" id="igv" value="0" style="border-radius: 5px;" required>
                           </div> 
 
+                          <div class="form-group   col-lg-12 col-sm-12 col-xs-12">
+                          <label>Observación</label><br>
+                              <textarea name="observacion" class="form-control" id="observacion" cols="30" rows="2"></textarea>
+                          </div> 
+
+                          
             </div>
 
             <div class="col-12">

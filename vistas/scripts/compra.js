@@ -382,6 +382,7 @@ function guardaryeditar()
 	var fechacp = $("#fechacp").val();
 	var numerocp = $("#numerocp").val();
 	var numerocheque = $("#numerocheque").val();
+	var documentoautoriza = $("#documentoautoriza").val();
 
 	let result = moment(fecha, 'YYYY-MM-DD',true).isValid();
 	let result2 = moment(fechacp, 'YYYY-MM-DD',true).isValid();
@@ -390,7 +391,7 @@ function guardaryeditar()
 
 	//alert(result+fecha);
 
-	if (nFilas > 0 && provedor > 0 && result && tipocomprobante > 0 && serie !== "" && numero !== "" && numerocp !=="" && result2 && numerocheque !=="") 
+	if (nFilas > 0 && provedor > 0 && result && tipocomprobante > 0 && serie !== "" && numero !== "" && numerocp !=="" && result2 && numerocheque !=="" && documentoautoriza!=="") 
 	{
 
 		
