@@ -148,7 +148,28 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		return ejecutarConsulta($sql);
 	}
 	public function ventasxproducto(){
-		$sql="SELECT count(dv.iddetalleproductodivisionaria) as cantidadp,p.descripcion,p.idproducto FROM `detalleventa` dv INNER JOIN productos p ON dv.iddetalleproductodivisionaria=p.idproducto GROUP by p.idproducto order by count(dv.iddetalleproductodivisionaria) DESC";
+		$mesActual = date("n");
+		$sql="SELECT
+		count(dv.iddetalleproductodivisionaria) AS cantidadp, 
+		p.descripcion, 
+		p.idproducto, 
+		venta.fecha
+	FROM
+		detalleventa AS dv
+		INNER JOIN
+		productos AS p
+		ON 
+			dv.iddetalleproductodivisionaria = p.idproducto
+		INNER JOIN
+		venta
+		ON 
+			dv.idventa = venta.idventa
+		WHERE
+		MONTH(venta.fecha)='$mesActual'
+	GROUP BY
+		p.idproducto
+	ORDER BY
+		count(dv.iddetalleproductodivisionaria) DESC";
 		return ejecutarConsulta($sql);
 	}
 	
