@@ -248,7 +248,7 @@ $cantidades=substr($cantidades, 0,-1);
                                 while ($reg = $comprobantes->fetch_object())
                                 {
                                 
-                                   echo '<tr><td><small>'.substr($reg->tipocomprobante,0,3).$reg->serie."-".$reg->numero."-".$reg->cliente.'</small></td><td><small>'.substr($reg->formapago,0,3).'</small></td><td align="right"><small>'.number_format($reg->total, 2, '.', '').'</small>&nbsp;</td><td>'.$reg->usuario.'</td></tr>';
+                                   echo '<tr><td><small>'.substr($reg->tipocomprobante,0,3).$reg->serie."-".$reg->numero."-".$reg->cliente.'</small></td><td><small>'.substr($reg->formapago,0,3).'</small></td><td align="right"><small>'.number_format($reg->total, 2, '.', '').'</small>&nbsp;</td><td><small>'.$reg->usuario.'</small></td></tr>';
                                 }                              
                                 ?>
                                 </table>
