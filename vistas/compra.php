@@ -415,7 +415,7 @@ if (!isset($_SESSION['nombre'])) {
 
                               ?>
                             <label>FECHA CP</label>
-                            <input type="date" class="form-control" name="fechacp" id="fechacp" style="border-radius: 5px;" required data-format="dd/MM/yyyy" min="<?php echo date("Y-m-d",strtotime($fecha.'- 5 days'));?>" max="<?php echo $fecha; ?>" value="<?php echo date('Y-m-d'); ?>">
+                            <input type="date" class="form-control" name="fechacp" id="fechacp" style="border-radius: 5px;" required data-format="dd/MM/yyyy">
                           </div>
 
                           <div id="forma_p" class="form-group  col-lg-4 col-sm-12 col-xs-12">
