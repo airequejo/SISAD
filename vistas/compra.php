@@ -349,7 +349,7 @@ if (!isset($_SESSION['nombre'])) {
 
 
                             <label>FECHA</label>
-                            <input type="date" class="form-control" name="fecha" id="fecha" style="border-radius: 5px;" required data-format="dd/MM/yyyy";?>" max="<?php echo $fecha; ?>" value="<?php echo date('Y-m-d'); ?>">
+                            <input type="date" class="form-control" name="fecha" id="fecha" style="border-radius: 5px;" required data-format="dd/MM/yyyy" value="<?php echo date('Y-m-d'); ?>">
                           </div>
 
 
