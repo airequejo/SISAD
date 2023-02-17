@@ -63,6 +63,8 @@ public function insertar_compra_temp($idproducto,$idactividad,$idusuario,$idinde
 					c.numero,
 					c.total,
 					c.igv,
+					c.numerocp,
+					c.numerocheque,
 					c.documentoautoriza,
 					c.observacion,
 					c.descuento,
