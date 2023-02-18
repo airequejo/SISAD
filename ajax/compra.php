@@ -186,6 +186,8 @@ switch ($_GET["op"]){
  				"5"=>$reg->descripcion,
  				"6"=>$reg->serie.'-'.$reg->numero,
  				"7"=>round($tt,2),
+ 				"8"=>$reg->numerocp,
+ 				"9"=>$reg->numerocheque,
  				"1"=>($reg->estado=='0')?'<span class="badge badge-info">Activo</span>':'<span class="badge badge-danger">Anulado</span>'
  				);
  		}
