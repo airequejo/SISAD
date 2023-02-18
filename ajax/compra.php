@@ -176,7 +176,7 @@ switch ($_GET["op"]){
  			$tt= round(($imp - $desc),2);
 
  			$data[]=array(
- 				"8"=>($reg->estado=='0')?'<a type="button" class="btn btn-xs btn-info" target="_blank" href="'.$url.$reg->idcompra.'"> <i class="fas fa-pencil-alt"></i></a>'.'&nbsp;'.
+ 				"10"=>($reg->estado=='0')?'<a type="button" class="btn btn-xs btn-info" target="_blank" href="'.$url.$reg->idcompra.'"> <i class="fas fa-pencil-alt"></i></a>'.'&nbsp;'.
  					'<button class="btn btn-danger btn-xs" onclick="anular('.$reg->idcompra.')" title="Anular Documento"><i class="fas fa-trash"></i> </button>':
  					'<a type="button" class="btn btn-xs btn-info" target="_blank" href="'.$url.$reg->idcompra.'"> <i class="fas fa-pencil-alt"></i></a>',
  				"0"=>$reg->idcompra,
