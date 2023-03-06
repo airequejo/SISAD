@@ -712,7 +712,7 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		ON 
 			subcuentas.idcuenta = cuentas.idcuenta
 	WHERE
-		asociados_actividad_producto.idactividad ='$idactividad' AND cuentas.idcuenta='$idcuenta'
+		asociados_actividad_producto.idactividad ='$idactividad' AND cuentas.idcuenta='$idcuenta' AND subcuentas.idsubcuenta='$idsubcuenta'
 		GROUP BY
 		divisionarias.iddivisionaria
 		order by
