@@ -331,6 +331,7 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		SUM(detalleventa.cantidad * detalleventa.precio) as total,
 		venta.fecha, 
 		divisionarias.codigodivisionaria, 
+		divisionarias.descripcion as divisionaria,
 		actividades.idperiodo
 	FROM
 		asociados_actividad_producto
@@ -392,6 +393,7 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		SUM(detalleventa.cantidad * detalleventa.precio) as total,
 		venta.fecha, 
 		divisionarias.codigodivisionaria, 
+		divisionarias.descripcion as divisionaria,
 		actividades.idperiodo
 	FROM
 		asociados_actividad_producto
@@ -449,6 +451,7 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		SUM(detalleventa.cantidad * detalleventa.precio) as total,
 		venta.fecha, 
 		divisionarias.codigodivisionaria, 
+		divisionarias.descripcion as divisionaria,
 		actividades.idperiodo
 	FROM
 		asociados_actividad_producto
