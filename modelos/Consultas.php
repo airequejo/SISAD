@@ -328,6 +328,7 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		productos.descripcion, 
 		detalleventa.cantidad, 
 		detalleventa.precio, 
+		detalleventa.cantidad * detalleventa.precio as total,
 		venta.fecha, 
 		divisionarias.codigodivisionaria, 
 		actividades.idperiodo
@@ -381,7 +382,8 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		subcuentas.codigosubcuenta, 
 		productos.descripcion, 
 		detalleventa.cantidad, 
-		detalleventa.precio, 
+		detalleventa.precio,
+		detalleventa.cantidad * detalleventa.precio as total,
 		venta.fecha, 
 		divisionarias.codigodivisionaria, 
 		actividades.idperiodo
@@ -434,6 +436,7 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		productos.descripcion, 
 		detalleventa.cantidad, 
 		detalleventa.precio, 
+		detalleventa.cantidad * detalleventa.precio as total,
 		venta.fecha, 
 		divisionarias.codigodivisionaria, 
 		actividades.idperiodo
