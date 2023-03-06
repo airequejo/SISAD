@@ -60,18 +60,17 @@
 <table border="0" align="center"  width="90%">
 <tr><td valign="top">
     <?php
-    
+    $totalingresos=0;
     echo "<table border='0'>";
     while ($regc = $rsptac->fetch_object()) {
         echo "<tr><td colspan='5'><font size='1px'><b>".$regc->codigocuenta." ".$regc->cuenta."</b></font></td><td align='right' valign='top'><font size='1px'><b>".number_format($regc->total,2)."</b></font></td></tr>";
         $rsptasc = $consultas->subcuentaporactividad($idactividad,$regc->idcuenta);
-
+$totalingresos=number_format($regc->total,2);
         while ($regsc = $rsptasc->fetch_object()) {
             echo "<tr><td valign='top'><font size='1px'>&nbsp;</font></td><td colspan='3'><font size='1px' color='blue'>".$regsc->codigosubcuenta." ".$regsc->subcuenta."</font></td><td align='right' valign='top'><font size='1px' color='blue'>".number_format($regsc->total,2)."</font></td><td valign='top'><font size='1px'>&nbsp;</font></td></tr>";
             $rsptadi = $consultas->divisionariaporactividad($idactividad,$regc->idcuenta,$regsc->idsubcuenta);
         while ($regdi = $rsptadi->fetch_object()) {
             echo "<tr><td valign='top'><font size='1px'>&nbsp;</font></td><td valign='top'><font size='1px'>&nbsp;</font></td><td><font size='1px'>".$regdi->codigodivisionaria." ".$regdi->divisionaria."</font></td><td align='right' valign='top'><font size='1px'>".number_format($regdi->total,2)."</font></td><td valign='top'><font size='1px'>&nbsp;</font></td><td valign='top'><font size='1px'>&nbsp;</font></td></tr>";
-            
         }
         }
     }
@@ -79,6 +78,7 @@
     ?>
     </td><td valign="top">
     <?php
+    $totalegresos=0;
     echo "<table border='0'>";
     while ($regcg = $rsptag->fetch_object()) {
         echo "<tr><td colspan='5'><font size='1px'><b>".$regcg->codigocuenta." ".$regcg->cuenta."</b></font></td><td align='right' valign='top'><font size='1px'><b>".number_format($regcg->total,2)."</b></font></td></tr>";
@@ -91,10 +91,23 @@
             
         }
         }
-    }
+        $totalegresos=$totalegresos+number_format($regcg->total,2);
+        }
     echo "</table>";
     ?>
     </td></tr>
+    <tr>
+    <td colspan="2">
+    RESUMEN DE INGRESOS Y EGRESOS DE LA ACTIVIDAD
+    </td>
+    </tr>
+    <td>
+    Ingresos S/ <?echo $totalingresos;?>
+    </td>
+    <td>
+    Egresos S/ <?echo $totalegresos;?>
+    </td>
+    </tr>
 </table>
 <br>
 
