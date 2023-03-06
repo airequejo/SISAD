@@ -104,7 +104,7 @@ $totalingresos=number_format($regc->total,2);
     </td>
     </tr>
     <td>
-    Ingresos S/ <?echo number_format($totalingresos,2);?>
+    Ingresos S/ <?echo $totalingresos;?>
     </td>
     <td>
     Egresos S/ <?echo number_format($totalegresos1,2);?>

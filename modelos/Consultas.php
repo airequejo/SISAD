@@ -270,6 +270,7 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		venta.montoabonado, 
 		venta.comprobante, 
 		venta.estado,
+		venta.idtipocomprobante,
 		clientes.nombre
 	FROM
 		detalleventa AS dtv
@@ -330,6 +331,7 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		detalleventa.cantidad, 
 		detalleventa.precio, 
 		venta.estado,
+		venta.idtipocomprobante,
 		SUM(detalleventa.cantidad * detalleventa.precio) as total,
 		venta.fecha, 
 		divisionarias.codigodivisionaria, 
@@ -367,7 +369,7 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		INNER JOIN
 		actividades
 		ON 
-			asociados_actividad_producto.idactividad = actividades.idactividad WHERE  venta.estado='0' AND actividades.idactividad ='$idactividad'
+			asociados_actividad_producto.idactividad = actividades.idactividad WHERE  venta.estado='0'  AND venta.idtipocomprobante<>'7' AND actividades.idactividad ='$idactividad'
 			GROUP BY
 		cuentas.idcuenta
 		ORDER BY
@@ -430,7 +432,7 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		INNER JOIN
 		actividades
 		ON 
-			asociados_actividad_producto.idactividad = actividades.idactividad WHERE venta.estado='0' AND actividades.idactividad ='$idactividad' AND cuentas.idcuenta='$idcuenta'
+			asociados_actividad_producto.idactividad = actividades.idactividad WHERE venta.estado='0'  AND venta.idtipocomprobante<>'7' AND actividades.idactividad ='$idactividad' AND cuentas.idcuenta='$idcuenta'
 			GROUP BY
 		subcuentas.idsubcuenta
 		ORDER BY
@@ -489,7 +491,7 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		INNER JOIN
 		actividades
 		ON 
-			asociados_actividad_producto.idactividad = actividades.idactividad WHERE venta.estado='0' AND actividades.idactividad ='$idactividad' AND cuentas.idcuenta='$idcuenta' AND subcuentas.idsubcuenta='$idsubcuenta'
+			asociados_actividad_producto.idactividad = actividades.idactividad WHERE venta.estado='0'  AND venta.idtipocomprobante<>'7' AND actividades.idactividad ='$idactividad' AND cuentas.idcuenta='$idcuenta' AND subcuentas.idsubcuenta='$idsubcuenta'
 			GROUP BY
 			divisionarias.iddivisionaria
 			ORDER BY
