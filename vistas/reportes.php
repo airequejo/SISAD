@@ -183,7 +183,7 @@ if (!isset($_SESSION['nombre'])) {
             <option value="11">PROGRAMA DE FORMACIÓN CONTINUA DE CAPACITACIÓN EN IDIOMA INGLÉS - VIRTUAL</option>
             <option value="12">PREPARATORIA ACADÉMICA</option>
           </select>
-          <button class="btn btn-primary" onclick="periodoproducto();">Ver</button>
+          <button class="btn btn-primary" onclick="periodoproducto();">Ver participantes</button>
     </div>
     <div class="icon">
       <i class="ion ion-person-add"></i>
@@ -191,6 +191,26 @@ if (!isset($_SESSION['nombre'])) {
     <a href="registrogastos.php" class="small-box-footer">Actividades <i class="fas fa-arrow-circle-right"></i></a>
   </div>
 </div>
+
+<div class="col-lg-3 col-6">
+  <div class="small-box bg-orange">
+    <div class="inner">
+      <br>
+        <label> Lista de Actividades</label>
+          <select name="idactividades" id="idactividades" class="form-control">
+            <option value="">Seleccione</option>
+            <option value="1">PROGRAMA DE FORMACIÓN CONTINUA DE CAPACITACIÓN EN IDIOMA INGLÉS - VIRTUAL</option>
+          </select>
+          <button class="btn btn-primary" onclick="ingresosegresosactividades();">Ver</button>
+    </div>
+    <div class="icon">
+      <i class="ion ion-person-add"></i>
+    </div>
+    <a href="registrogastos.php" class="small-box-footer">Actividades <i class="fas fa-arrow-circle-right"></i></a>
+  </div>
+</div>
+
+
         </div>         
           
         <!-- FIN AREA DE TRABAJO  -->
