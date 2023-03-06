@@ -417,7 +417,7 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		INNER JOIN
 		actividades
 		ON 
-			asociados_actividad_producto.idactividad = actividades.idactividad WHERE actividades.idactividad ='$idactividad' AND cuentas.idcuentas='$idcuenta'";	
+			asociados_actividad_producto.idactividad = actividades.idactividad WHERE actividades.idactividad ='$idactividad' AND cuentas.idcuenta='$idcuenta'";	
 	return ejecutarConsulta($sql);
 	}
 	
@@ -469,7 +469,7 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		INNER JOIN
 		actividades
 		ON 
-			asociados_actividad_producto.idactividad = actividades.idactividad WHERE actividades.idactividad ='$idactividad' AND cuentas.idcuentas='$idcuenta' AND subcuentas.idsubcuentas='$idsubcuenta'";	
+			asociados_actividad_producto.idactividad = actividades.idactividad WHERE actividades.idactividad ='$idactividad' AND cuentas.idcuenta='$idcuenta' AND subcuentas.idsubcuenta='$idsubcuenta'";	
 	return ejecutarConsulta($sql);
 	}
 	
