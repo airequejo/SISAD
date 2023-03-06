@@ -64,10 +64,10 @@
     echo "<table border='0'>";
     while ($regc = $rsptac->fetch_object()) {
         echo "<tr><td colspan='5'><font size='1px'><b>".$regc->codigocuenta." ".$regc->cuenta."</b></font></td><td align='right' valign='top'><font size='1px'><b>".number_format($regc->total,2)."</b></font></td></tr>";
-        $rsptasc = $consultas->subcuentasingresos($periodo,$regc->idcuenta);
+        $rsptasc = $consultas->subcuentaporactividad($idactividad,$regc->idcuenta);
         while ($regsc = $rsptasc->fetch_object()) {
             echo "<tr><td valign='top'><font size='1px'>&nbsp;</font></td><td colspan='3'><font size='1px' color='blue'>".$regsc->codigosubcuenta." ".$regsc->subcuenta."</font></td><td align='right' valign='top'><font size='1px' color='blue'>".number_format($regsc->total,2)."</font></td><td valign='top'><font size='1px'>&nbsp;</font></td></tr>";
-            $rsptadi = $consultas->divisionariaingresos($periodo,$regc->idcuenta,$regsc->idsubcuenta);
+            $rsptadi = $consultas->divisionariaporactividad($idactividad,$regc->idcuenta,$regsc->idsubcuenta);
         while ($regdi = $rsptadi->fetch_object()) {
             echo "<tr><td valign='top'><font size='1px'>&nbsp;</font></td><td valign='top'><font size='1px'>&nbsp;</font></td><td><font size='1px'>".$regdi->codigodivisionaria." ".$regdi->divisionaria."</font></td><td align='right' valign='top'><font size='1px'>".number_format($regdi->total,2)."</font></td><td valign='top'><font size='1px'>&nbsp;</font></td><td valign='top'><font size='1px'>&nbsp;</font></td></tr>";
             

@@ -366,7 +366,123 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 			asociados_actividad_producto.idactividad = actividades.idactividad WHERE actividades.idactividad ='$idactividad'";	
 	return ejecutarConsulta($sql);
 	}
-		
+	
+	
+	
+	Public function subcuentaporactividad($idactividad,$idcuenta){
+		$sql="SELECT
+		asociados_actividad_producto.idactividad, 
+		asociados_actividad_producto.idproducto, 
+		subcuentas.idsubcuenta, 
+		subcuentas.descripcion AS subcuenta, 
+		cuentas.idcuenta, 
+		cuentas.codigocuenta, 
+		cuentas.descripcion AS cuenta, 
+		subcuentas.codigosubcuenta, 
+		productos.descripcion, 
+		detalleventa.cantidad, 
+		detalleventa.precio, 
+		venta.fecha, 
+		divisionarias.codigodivisionaria, 
+		actividades.idperiodo
+	FROM
+		asociados_actividad_producto
+		INNER JOIN
+		detalle_producto_divisionarias
+		ON 
+			asociados_actividad_producto.idproducto = detalle_producto_divisionarias.idproducto
+		INNER JOIN
+		divisionarias
+		ON 
+			detalle_producto_divisionarias.iddivisionaria = divisionarias.iddivisionaria
+		INNER JOIN
+		cuentas
+		INNER JOIN
+		subcuentas
+		ON 
+			cuentas.idcuenta = subcuentas.idcuenta AND
+			divisionarias.idsubcuenta = subcuentas.idsubcuenta
+		INNER JOIN
+		productos
+		ON 
+			detalle_producto_divisionarias.idproducto = productos.idproducto
+		INNER JOIN
+		detalleventa
+		ON 
+			detalle_producto_divisionarias.iddetalleproductodivisionaria = detalleventa.iddetalleproductodivisionaria
+		INNER JOIN
+		venta
+		ON 
+			detalleventa.idventa = venta.idventa
+		INNER JOIN
+		actividades
+		ON 
+			asociados_actividad_producto.idactividad = actividades.idactividad WHERE actividades.idactividad ='$idactividad' AND cuentas.idcuentas='$idcuenta'";	
+	return ejecutarConsulta($sql);
+	}
+	
+	Public function divisionariaporactividad($idactividad,$idcuenta,$idsubcuenta){
+		$sql="SELECT
+		asociados_actividad_producto.idactividad, 
+		asociados_actividad_producto.idproducto, 
+		subcuentas.idsubcuenta, 
+		subcuentas.descripcion AS subcuenta, 
+		cuentas.idcuenta, 
+		cuentas.codigocuenta, 
+		cuentas.descripcion AS cuenta, 
+		subcuentas.codigosubcuenta, 
+		productos.descripcion, 
+		detalleventa.cantidad, 
+		detalleventa.precio, 
+		venta.fecha, 
+		divisionarias.codigodivisionaria, 
+		actividades.idperiodo
+	FROM
+		asociados_actividad_producto
+		INNER JOIN
+		detalle_producto_divisionarias
+		ON 
+			asociados_actividad_producto.idproducto = detalle_producto_divisionarias.idproducto
+		INNER JOIN
+		divisionarias
+		ON 
+			detalle_producto_divisionarias.iddivisionaria = divisionarias.iddivisionaria
+		INNER JOIN
+		cuentas
+		INNER JOIN
+		subcuentas
+		ON 
+			cuentas.idcuenta = subcuentas.idcuenta AND
+			divisionarias.idsubcuenta = subcuentas.idsubcuenta
+		INNER JOIN
+		productos
+		ON 
+			detalle_producto_divisionarias.idproducto = productos.idproducto
+		INNER JOIN
+		detalleventa
+		ON 
+			detalle_producto_divisionarias.iddetalleproductodivisionaria = detalleventa.iddetalleproductodivisionaria
+		INNER JOIN
+		venta
+		ON 
+			detalleventa.idventa = venta.idventa
+		INNER JOIN
+		actividades
+		ON 
+			asociados_actividad_producto.idactividad = actividades.idactividad WHERE actividades.idactividad ='$idactividad' AND cuentas.idcuentas='$idcuenta' AND subcuentas.idsubcuentas='$idsubcuenta'";	
+	return ejecutarConsulta($sql);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public function egresosporactividad($idactividad){
 		$sql="SELECT
 		actividades.idactividad, 
