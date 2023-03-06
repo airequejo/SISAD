@@ -78,10 +78,11 @@ $totalingresos=number_format($regc->total,2);
     ?>
     </td><td valign="top">
     <?php
-    $totalegresos=0;
+    $totalegresos1=0;
     echo "<table border='0'>";
     while ($regcg = $rsptag->fetch_object()) {
         echo "<tr><td colspan='5'><font size='1px'><b>".$regcg->codigocuenta." ".$regcg->cuenta."</b></font></td><td align='right' valign='top'><font size='1px'><b>".number_format($regcg->total,2)."</b></font></td></tr>";
+        $totalegresos1=$totalegresos1+number_format($regcg->total,2);
         $rsptascg = $consultas->subcuentaegresosporactividad($idactividad,$regcg->idcuenta);
         while ($regscg = $rsptascg->fetch_object()) {
             echo "<tr><td valign='top'><font size='1px'>&nbsp;</font></td><td colspan='3'><font size='1px' color='blue'>".$regscg->codigosubcuenta." ".$regscg->subcuenta."</font></td><td align='right' valign='top'><font size='1px' color='blue'>".number_format($regscg->total,2)."</font></td><td valign='top'><font size='1px'>&nbsp;</font></td></tr>";
@@ -91,7 +92,7 @@ $totalingresos=number_format($regc->total,2);
             
         }
         }
-        $totalegresos=$totalegresos+number_format($regcg->total,2);
+        
         }
     echo "</table>";
     ?>
@@ -105,7 +106,7 @@ $totalingresos=number_format($regc->total,2);
     Ingresos S/ <?echo $totalingresos;?>
     </td>
     <td>
-    Egresos S/ <?echo $totalegresos;?>
+    Egresos S/ <?echo $totalegresos1;?>
     </td>
     </tr>
 </table>
