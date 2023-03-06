@@ -4,7 +4,7 @@
       $actividad=$_GET["id"];
       $rsptac = $consultas->ingresosporactividad($actividad);
     
-      $rsptag = $consultas->cuentasgastos($actividad);
+      //$rsptag = $consultas->cuentasgastos($actividad);
 ?>
 <html>
 <head>
