@@ -100,13 +100,14 @@ $totalingresos=number_format($regc->total,2);
     <tr>
     <td colspan="2">
     RESUMEN DE INGRESOS Y EGRESOS DE LA ACTIVIDAD
+    <hr>
     </td>
     </tr>
     <td>
-    Ingresos S/ <?echo $totalingresos;?>
+    Ingresos S/ <?echo number_format($totalingresos,2);?>
     </td>
     <td>
-    Egresos S/ <?echo $totalegresos1;?>
+    Egresos S/ <?echo number_format($totalegresos1,2);?>
     </td>
     </tr>
 </table>
