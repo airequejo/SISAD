@@ -328,7 +328,7 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		productos.descripcion, 
 		detalleventa.cantidad, 
 		detalleventa.precio, 
-		detalleventa.cantidad * detalleventa.precio as total,
+		SUM(detalleventa.cantidad * detalleventa.precio) as total,
 		venta.fecha, 
 		divisionarias.codigodivisionaria, 
 		actividades.idperiodo
@@ -389,7 +389,7 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		productos.descripcion, 
 		detalleventa.cantidad, 
 		detalleventa.precio,
-		detalleventa.cantidad * detalleventa.precio as total,
+		SUM(detalleventa.cantidad * detalleventa.precio) as total,
 		venta.fecha, 
 		divisionarias.codigodivisionaria, 
 		actividades.idperiodo
@@ -446,7 +446,7 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		productos.descripcion, 
 		detalleventa.cantidad, 
 		detalleventa.precio, 
-		detalleventa.cantidad * detalleventa.precio as total,
+		SUM(detalleventa.cantidad * detalleventa.precio) as total,
 		venta.fecha, 
 		divisionarias.codigodivisionaria, 
 		actividades.idperiodo
@@ -567,6 +567,9 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		asociados_actividad_producto.idactividad ='$idactividad'";
 		return ejecutarConsulta($sql);
 	}
+	
+	
+	
 	// GESTION DE CONSULTAS DE GASTOS O EGRESOS
 	public function reporteperiodoingresosfechas($inicio,$final){
 		$sql="SELECT p.idproducto,dtv.iddetalleproductodivisionaria,d.descripcion AS divisionaria,s.descripcion AS subcuenta,c.descripcion AS cuenta, p.descripcion, dtv.idperiodo, dtv.precio * dtv.cantidad AS total, c.idcuenta, s.idsubcuenta, 
