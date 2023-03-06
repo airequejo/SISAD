@@ -193,13 +193,22 @@ if (!isset($_SESSION['nombre'])) {
 </div>
 
 <div class="col-lg-3 col-6">
-  <div class="small-box bg-orange">
+  <div class="small-box bg-blue">
     <div class="inner">
       <br>
-        <label> Lista de Actividades</label>
+        <label> Lista de Proyectos</label>
+        <select name="idperiodoprod" id="idperiodoprod" class="form-control">
+                <option value="">Seleccione</option>
+                <option value="1">2023-I</option>
+                
+              </select>
           <select name="idactividades" id="idactividades" class="form-control">
             <option value="">Seleccione</option>
             <option value="1">PROGRAMA DE FORMACIÓN CONTINUA DE CAPACITACIÓN EN IDIOMA INGLÉS - VIRTUAL</option>
+            <option value="16">DERECHO DE PAGO POR INGLÉS NIVEL A2 PARA OBTENCIÓN DE GRADO</option>
+            <option value="18">TALLER DE REFORZAMIENTO EN INGLÉS</option>
+            <option value="19">TALLER DE REFORZAMIENTO EN COMUNICACIÓN, MATEMÁTICA Y CULTURA</option>
+            <option value="20">PROGRAMA DE PROFESIONALIZACIÓN DOCENTE</option>
           </select>
           <button class="btn btn-primary" onclick="ingresosegresosactividades();">Ver</button>
     </div>
@@ -226,46 +235,7 @@ if (!isset($_SESSION['nombre'])) {
  
 
 
-<!---  INICIO MODAL   --->
- 
-<!-- Modal secondary -->
-  <div class="modal fade" id="mymodal" data-backdrop="static"  role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content ">
-        <div class="modal-header bg-info"> 
-          <h5 class="modal-title" id="titulo_modal">Titulo Modal</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form name="formulario" id="formulario" method="POST">   
 
-            <div class="row">
-
-                <div class="col-lg-6 col-md-12">      
-                  <div class="form-group">
-                    <label>DESCRIPCIÓN DE GASTO</label>
-                    <input type="hidden" name="idgasto" id="idgasto">
-                    <input class="form-control" type="text" name="descripcion" id="descripcion" placeholder="Ingrese descripción de la cuenta" required>
-                  </div>  
-                </div>
-
-              </div>
-
-            </div>
-
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-ban"></i> Cancelar</button>
-              <button type="submit" id="btnGuardar" class="btn btn-info"><i class="fas fa-save"></i> Guardar</button>
-            </div>
-
-          </form> 
-      </div>
-    </div>
-  </div>
-
-<!--- FIN MODAL  -->
 
 
 <?php } else {require 'noacceso.php';}
@@ -289,6 +259,12 @@ if (!isset($_SESSION['nombre'])) {
 
   //mostrar_precio_periodo();
 }
+  
+  
+  function ingresosegresosactividades(){
+    var id = $("#idactividades").val();
+    window.open('../reportes/informeactividades.php?id='+id,'_blank');
+  }
   
   
     function mostrarperiodoingreso() {
