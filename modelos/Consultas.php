@@ -364,7 +364,13 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		INNER JOIN
 		actividades
 		ON 
-			asociados_actividad_producto.idactividad = actividades.idactividad WHERE actividades.idactividad ='$idactividad'";	
+			asociados_actividad_producto.idactividad = actividades.idactividad WHERE actividades.idactividad ='$idactividad'
+			GROUP BY
+		cuentas.idcuenta
+		ORDER BY
+		cuentas.codigocuenta ASC";	
+	
+	
 	return ejecutarConsulta($sql);
 	}
 	
@@ -419,7 +425,11 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		INNER JOIN
 		actividades
 		ON 
-			asociados_actividad_producto.idactividad = actividades.idactividad WHERE actividades.idactividad ='$idactividad' AND cuentas.idcuenta='$idcuenta'";	
+			asociados_actividad_producto.idactividad = actividades.idactividad WHERE actividades.idactividad ='$idactividad' AND cuentas.idcuenta='$idcuenta'
+			GROUP BY
+		subcuentas.idsubcuenta
+		ORDER BY
+		subcuentas.codigosubcuenta ASC";	
 	return ejecutarConsulta($sql);
 	}
 	
@@ -472,7 +482,11 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 		INNER JOIN
 		actividades
 		ON 
-			asociados_actividad_producto.idactividad = actividades.idactividad WHERE actividades.idactividad ='$idactividad' AND cuentas.idcuenta='$idcuenta' AND subcuentas.idsubcuenta='$idsubcuenta'";	
+			asociados_actividad_producto.idactividad = actividades.idactividad WHERE actividades.idactividad ='$idactividad' AND cuentas.idcuenta='$idcuenta' AND subcuentas.idsubcuenta='$idsubcuenta'
+			GROUP BY
+			divisionarias.iddivisionaria
+			ORDER BY
+			divisionarias.codigodivisionaria ASC";	
 	return ejecutarConsulta($sql);
 	}
 	
