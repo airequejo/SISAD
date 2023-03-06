@@ -1,8 +1,8 @@
 <?php
     require_once "../modelos/Consultas.php";
       $consultas = new Consultas;
-      $actividad=$_GET["id"];
-      $rsptac = $consultas->ingresosporactividad($actividad);
+      $idactividad=$_GET["id"];
+      $rsptac = $consultas->ingresosporactividad($_GET["id"]);
     
       //$rsptag = $consultas->cuentasgastos($actividad);
 ?>
@@ -65,6 +65,7 @@
     while ($regc = $rsptac->fetch_object()) {
         echo "<tr><td colspan='5'><font size='1px'><b>".$regc->codigocuenta." ".$regc->cuenta."</b></font></td><td align='right' valign='top'><font size='1px'><b>".number_format($regc->total,2)."</b></font></td></tr>";
         $rsptasc = $consultas->subcuentaporactividad($idactividad,$regc->idcuenta);
+
         while ($regsc = $rsptasc->fetch_object()) {
             echo "<tr><td valign='top'><font size='1px'>&nbsp;</font></td><td colspan='3'><font size='1px' color='blue'>".$regsc->codigosubcuenta." ".$regsc->subcuenta."</font></td><td align='right' valign='top'><font size='1px' color='blue'>".number_format($regsc->total,2)."</font></td><td valign='top'><font size='1px'>&nbsp;</font></td></tr>";
             $rsptadi = $consultas->divisionariaporactividad($idactividad,$regc->idcuenta,$regsc->idsubcuenta);
