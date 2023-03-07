@@ -568,6 +568,7 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 			subcuentas.idcuenta = cuentas.idcuenta
 	WHERE
 		asociados_actividad_producto.idactividad ='$idactividad'
+		AND compra.estado = '0'
 		GROUP BY
 		cuentas.idcuenta
 		order by
@@ -644,6 +645,7 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 			subcuentas.idcuenta = cuentas.idcuenta
 	WHERE
 		asociados_actividad_producto.idactividad ='$idactividad' AND cuentas.idcuenta='$idcuenta'
+		AND compra.estado = '0'
 		GROUP BY
 		subcuentas.idsubcuenta
 		order by
@@ -719,6 +721,7 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 			subcuentas.idcuenta = cuentas.idcuenta
 	WHERE
 		asociados_actividad_producto.idactividad ='$idactividad' AND cuentas.idcuenta='$idcuenta' AND subcuentas.idsubcuenta='$idsubcuenta'
+		AND compra.estado = '0'
 		GROUP BY
 		divisionarias.iddivisionaria
 		order by
