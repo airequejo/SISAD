@@ -169,7 +169,7 @@ if (!isset($_SESSION['nombre'])) {
 </div>
 
 <div class="col-lg-3 col-6">
-  <div class="small-box bg-danger">
+  <div class="small-box bg-skyblue">
     <div class="inner">
       <br>
         <label> Lista de Productos</label>
@@ -184,6 +184,7 @@ if (!isset($_SESSION['nombre'])) {
             <option value="12">PREPARATORIA ACADÉMICA</option>
             <option value="92">TALLER DE REFORZAMIENTO EN INGLÉS</option>
             <option value="93">TALLER DE REFORZAMIENTO EN COMUNICACIÓN, MATEMÁTICA Y CULTURA</option>
+           
           </select>
           <button class="btn btn-primary" onclick="periodoproducto();">Ver participantes</button>
     </div>
