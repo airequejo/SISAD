@@ -822,34 +822,41 @@ WHERE estado= 0   GROUP by MONTH(fecha) ORDER BY YEAR(fecha), MONTH(fecha) ASC l
 	
 	public function periodoproducto($idperiodo,$idproducto){
 		$sql="SELECT
-		dv.iddetalleproductodivisionaria, 
-		p.descripcion, 
-		p.idproducto, 
-		clientes.nombre, 
-		venta.idventa, 
 		clientes.dniruc, 
-		clientes.celular
+		clientes.nombre, 
+		clientes.celular, 
+		direcciones.nombredireccion, 
+		detalle_producto_divisionarias.idproducto, 
+		productos.descripcion, 
+		periodos.idperiodo
 	FROM
-		detalleventa AS dv
-		INNER JOIN
-		productos AS p
-		ON 
-			dv.iddetalleproductodivisionaria = p.idproducto
-		INNER JOIN
-		venta
-		ON 
-			dv.idventa = venta.idventa
+		clientes
 		INNER JOIN
 		direcciones
 		ON 
-			venta.iddireccioncliente = direcciones.iddireccion
+			clientes.idcliente = direcciones.idcliente
 		INNER JOIN
-		clientes
+		venta
 		ON 
-			direcciones.idcliente = clientes.idcliente
-			WHERE dv.idperiodo='$idperiodo' AND idproducto='$idproducto'
-	ORDER BY
-		dv.iddetalleproductodivisionaria DESC";
+			direcciones.iddireccion = venta.iddireccioncliente
+		INNER JOIN
+		detalleventa
+		ON 
+			venta.idventa = detalleventa.idventa
+		INNER JOIN
+		detalle_producto_divisionarias
+		ON 
+			detalleventa.iddetalleproductodivisionaria = detalle_producto_divisionarias.iddetalleproductodivisionaria
+		INNER JOIN
+		productos
+		ON 
+			detalle_producto_divisionarias.idproducto = productos.idproducto
+		INNER JOIN
+		periodos
+		ON 
+			detalleventa.idperiodo = periodos.idperiodo
+		WHERE detalle_producto_divisionarias.idproducto='$idproducto'
+		AND detalleventa.idperiodo='$idperiodo'";
 		return ejecutarConsulta($sql);
 		}
 	
