@@ -182,6 +182,8 @@ if (!isset($_SESSION['nombre'])) {
             <option value="">Seleccione</option>
             <option value="11">PROGRAMA DE FORMACIÓN CONTINUA DE CAPACITACIÓN EN IDIOMA INGLÉS - VIRTUAL</option>
             <option value="12">PREPARATORIA ACADÉMICA</option>
+            <option value="92">TALLER DE REFORZAMIENTO EN INGLÉS</option>
+            <option value="93">TALLER DE REFORZAMIENTO EN COMUNICACIÓN, MATEMÁTICA Y CULTURA</option>
           </select>
           <button class="btn btn-primary" onclick="periodoproducto();">Ver participantes</button>
     </div>
