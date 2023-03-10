@@ -169,14 +169,14 @@ if (!isset($_SESSION['nombre'])) {
 </div>
 
 <div class="col-lg-3 col-6">
-  <div class="small-box bg-skyblue">
+  <div class="small-box bg-orange">
     <div class="inner">
       <br>
         <label> Lista de Productos</label>
         <select name="idperiodoprod" id="idperiodoprod" class="form-control">
                 <option value="">Seleccione</option>
                 <option value="1">2023-I</option>
-                
+                <option value="2">2023-II</option>
               </select>
           <select name="idproducto" id="idproducto" class="form-control">
             <option value="">Seleccione</option>
